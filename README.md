@@ -25,3 +25,16 @@ We have been tasked with developing a database and implementing a full-stack int
 | Authentication | Passport.js | 
 
  
+## How do I use this?
+
+### Install Dependencies
+
+`npm install`
+
+### Make sure CSS is properly built using Tailwind CSS. 
+
+`npm run build-css`
+
+### Run the webserver
+
+`npm run test` or `nodemon`

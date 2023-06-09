@@ -1,1 +1,46 @@
-<h1>Register an Entry</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register an Account</title>
+    <link rel="stylesheet" href="output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <div class="account-register">
+            <h1 class="mb-6 text-5xl font-bold">Register an Account</h1>
+            <form class="registration-form">
+                <div class="form-field">
+                    <label for="fullName">Full Name</label><br>
+                    <input id="fullNameRegistrationInput" name="fullName" type="text" placeholder="Full Name" required>
+                </div>
+                <div class="form-field">
+                    <label for="email">Email</label><br>
+                    <input id="emailRegistrationInput" name="email" type="email" placeholder="Email" required>
+                </div>
+                <div class="form-field">
+                    <label for="pwd">Password</label><br>
+                    <input id="passwordRegistrationInput" name="pwd" type="password" placeholder="Password" required>
+                </div>
+                <div class="form-field">
+                    <label for="accountGroup">Account Type</label><br>  
+                    <select name="accountGroup" id="accountGroup" required>
+                        <option value="Student" selected>Student</option>
+                        <option value="Tutor">Tutor</option>
+                        <option value="Administrator">Tutor</option>
+                    </select>
+                </div>
+                <div class="centered-button">
+                    <button class="btn">Register Account</button>
+                </div>
+                
+            </form>
+        </div>
+    </main>
+</body>
+</html>

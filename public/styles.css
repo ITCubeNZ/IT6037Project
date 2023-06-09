@@ -5,7 +5,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Nunito', sans-serif;
+    background-color: #2D3142;
 }
 
 #landingMain {
@@ -25,12 +25,60 @@ body {
     height: 20vh;
 }
 
+main {
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    @apply text-neutral-800;
+}
+
 .btn {
     @apply font-bold py-2 px-4 rounded;
 }
-.btn-blue {
-    @apply bg-blue-500 text-white;
+.btn-account {
+    @apply bg-indigo-700 text-white;
 }
-.btn-blue:hover {
-    @apply bg-blue-700;
+.btn-account:hover {
+    @apply bg-indigo-950;
+}
+
+.account-register {
+    @apply bg-white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    padding: 5rem;
+}
+
+.registration-form {
+    text-align: justify;
+    margin-top: 2rem;
+}
+
+.form-field {
+    margin-top: 1rem;
+}
+
+.form-field label {
+    font-weight: bold;
+}
+
+.registration-form button {
+    margin-top: 1rem;
+    @apply bg-zinc-900;
+    @apply text-white;
+}
+
+.registration-form button:hover {
+    @apply bg-zinc-600;
+}
+
+.centered-button {
+    margin-left: auto;
+    margin-right: auto;
 }
