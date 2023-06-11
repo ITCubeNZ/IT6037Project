@@ -22,7 +22,7 @@ We have been tasked with developing a database and implementing a full-stack int
 | Database | MongoDB/Mongoose |
 | Front-End | Tailwind CSS |
 | Template Engine | EJS |
-| Authentication | Passport.js | 
+| Authentication | JWT | 
 
  
 ## How do I use this?
