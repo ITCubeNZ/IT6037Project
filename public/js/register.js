@@ -14,7 +14,7 @@ form.addEventListener('submit', async (e) => {
         });
         const data = await res.json();
         if (data.user) {
-            location.assign('/login')
+            location.assign('/search')
         }
     } catch (err) {
         console.log(err);

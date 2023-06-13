@@ -64,3 +64,8 @@ module.exports.login_post = (req, res) => {
 
     res.send("User has logged in");
 }
+
+module.exports.search_get = (req, res) => {
+    res.render('search');
+}
+
