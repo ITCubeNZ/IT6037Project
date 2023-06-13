@@ -12,6 +12,10 @@ form.addEventListener('submit', async (e) => {
             body: JSON.stringify({ email, password}),
             headers: { 'Content-Type': 'application/json' }
         });
+        const data = await res.json();
+        if (data.user) {
+            location.assign('/login')
+        }
     } catch (err) {
         console.log(err);
     }

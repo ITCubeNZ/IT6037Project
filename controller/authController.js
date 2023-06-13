@@ -52,7 +52,7 @@ module.exports.register_post = async (req, res) => {
         });
         const token = createJWT(user._id);
         res.cookie('jwt', token, { httpOnly: true , maxAge: loginAge * 1000});
-        res.status(201).json({user: user_id});
+        res.status(201).json({user: (await user)._id});
     } catch (err) {
         const errors = handleErrors(err);
         res.status(400).json({ errors });
