@@ -4,7 +4,7 @@ const { connect } = require('./Database');
 const authRoutes = require('./routes/authRoutes');
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
-const { requireAuth } = require('./middleware/authMiddleware');
+const { requireAuth, checkUser } = require('./middleware/authMiddleware');
 
 const app = express();
 app.use(express.json())
@@ -23,6 +23,7 @@ app.listen(port, () => {
 })
 
 // ROUTES
+app.get('*', checkUser);
 app.get('/', (req, res) => res.render('index'));
 app.get('/search', requireAuth, (req, res) => res.render('search'));
 
