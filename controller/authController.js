@@ -6,6 +6,8 @@ const handleErrors = (err) => {
     console.log(err.message, err.code);
     let errors = { email: '', password: ''};
     
+    if  (err.message)
+
     // Check if email duplicate
     if (err.code === 11000) {
         errors.email = "that email is already registered";
@@ -23,7 +25,9 @@ const handleErrors = (err) => {
     return errors;
 }
 
-const loginAge = 7 * 24 * 60 * 60;
+const loginAge = 7 * 24 * 60 * 60;  // 7 Days
+
+// JWT Creation Function
 const createJWT = (id) => {
     return jwt.sign({ id }, secret, {
         expiresIn: loginAge
@@ -59,10 +63,17 @@ module.exports.register_post = async (req, res) => {
     }
 }
 
-module.exports.login_post = (req, res) => {
+module.exports.login_post =async  (req, res) => {
     const { email, password } = req.body
 
-    res.send("User has logged in");
+    try {
+        const user = await User.login(email, password);
+        const token = createJWT(user._id);
+        res.cookie('jwt', token, { httpOnly: true , maxAge: loginAge * 1000});
+        res.status(200).json( {user: user._id})
+    } catch (err) {
+        res.status(400).json({})
+    }
 }
 
 module.exports.search_get = (req, res) => {
