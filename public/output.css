@@ -606,12 +606,31 @@ h1 {
   padding: 2px;
 }
 
+.form-field textarea {
+  border-width: 4px;
+  border-radius: 6px;
+  --tw-border-opacity: 1;
+  border-color: rgb(38 38 38 / var(--tw-border-opacity));
+  padding: 2px;
+  width: 100%;
+}
+
+.form-field textarea:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(63 63 70 / var(--tw-border-opacity));
+}
+
 .form-field input:focus {
   --tw-border-opacity: 1;
   border-color: rgb(63 63 70 / var(--tw-border-opacity));
 }
 
 .form-field input:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(163 163 163 / var(--tw-border-opacity));
+}
+
+.form-field textarea:hover {
   --tw-border-opacity: 1;
   border-color: rgb(163 163 163 / var(--tw-border-opacity));
 }
