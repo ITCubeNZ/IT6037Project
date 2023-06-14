@@ -1,21 +1,53 @@
-const { Schema } = require('mongoose');
+const { Schema } = require("mongoose");
 
-const resourceSchema = new Schema({
-    category: String,
-    type: String,
-    name: String,
-    born: Number,
-    died: Number,
-    nationality: String, 
-    knownFor: String,
-    notableWork: String,
-    about: String,
-    year: Number,
-    medium: String,
-    dimensions: String, 
-    location:  String,
-    developer: String
+const resourceSchema = new mongoose.Schema({
+    category: {
+        type: String,
+        required: [true, 'Please enter a category'],
+    },
+    type: {
+        type: String, 
+        required: [true, 'Please enter a type']
+    },
+    name: {
+        type: String,
+        required: [true, 'Please enter a name']
+    },
+    born: {
+        type: Number
+    },
+    died: {
+        type: Number
+    },
+    nationality: {
+        type: String
+    },
+    knownFor: {
+        type: String
+    },
+    notableWork: {
+        type: String
+    },
+    about: {
+        type: String,
+        required: [true, 'Please enter some information for the about section.']
+    },
+    year: {
+        type: Number
+    },
+    medium: {
+        type: String
+    },
+    dimensions: {
+        type: String
+    },
+    location: {
+        type: String
+    },
+    developer: {
+        type: String
+    }
 })
 
-const Resource = model('Resource', resourceSchema);
-export default Resource;
+const Resource = mongoose.model('resource', resourceSchema);
+module.exports = Resource;
