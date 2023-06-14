@@ -9,7 +9,7 @@ form.addEventListener('submit', async (e) => {
     try {
         const res = await fetch('/register', {
             method: 'POST',
-            body: JSON.stringify({ email, password}),
+            body: JSON.stringify({ email, password }),
             headers: { 'Content-Type': 'application/json' }
         });
         const data = await res.json();
