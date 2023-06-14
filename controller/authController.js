@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const jwt = require('jsonwebtoken');
 const secret = require("../secret");
+const { requireAuth } = require("../middleware/authMiddleware");
 
 const handleErrors = (err) => {
     console.log(err.message, err.code);
@@ -51,10 +52,6 @@ module.exports.login_get = (req, res) => {
     res.render("login");
 }
 
-module.exports.index_get = (req, res) => {
-    res.render("index");
-}
-
 module.exports.register_post = async (req, res) => {
     const { fullName, email, password, accountGroup } = req.body
     
@@ -85,7 +82,4 @@ module.exports.login_post =async  (req, res) => {
     }
 }
 
-module.exports.search_get = (req, res) => {
-    res.render('search');
-}
 
