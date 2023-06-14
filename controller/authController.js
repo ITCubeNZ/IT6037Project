@@ -1,6 +1,8 @@
 const User = require("../models/User");
 const jwt = require('jsonwebtoken');
 const secret = require("../secret");
+const { requireAuth } = require("../middleware/authMiddleware");
+
 
 const handleErrors = (err) => {
     console.log(err.message, err.code);
@@ -87,4 +89,5 @@ module.exports.logout_get = (req, res) => {
     res.cookie('jwt', '', { maxAge: 1 });
     res.redirect('/')
 }
+
 

@@ -2,6 +2,7 @@
 const express = require('express');
 const { connect } = require('./Database');
 const authRoutes = require('./routes/authRoutes');
+const dataRoutes = require('./routes/dataRoutes');
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
 const { requireAuth, checkUser } = require('./middleware/authMiddleware');
@@ -28,3 +29,4 @@ app.get('/', (req, res) => res.render('index'));
 app.get('/search', requireAuth, (req, res) => res.render('search'));
 
 app.use(authRoutes);
+app.use(dataRoutes);
