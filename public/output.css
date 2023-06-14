@@ -536,6 +536,12 @@ main {
   overflow: hidden;
 }
 
+.email.error, .password.error {
+  font-weight: bold;
+  --tw-text-opacity: 1;
+  color: rgb(185 28 28 / var(--tw-text-opacity));
+}
+
 .content {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));

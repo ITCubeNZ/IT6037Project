@@ -17,6 +17,11 @@ main {
     
 }
 
+.email.error, .password.error {
+    font-weight: bold;
+    @apply text-red-700;
+}
+
 .content {
     @apply bg-white;
     position: absolute;
