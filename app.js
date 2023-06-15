@@ -5,7 +5,7 @@ const authRoutes = require('./routes/authRoutes');
 const dataRoutes = require('./routes/dataRoutes');
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
-const { requireAuth, checkUser } = require('./middleware/authMiddleware');
+const { requireAuth, checkUser, checkAuthenticated } = require('./middleware/authMiddleware');
 
 const app = express();
 
@@ -25,8 +25,8 @@ app.listen(port, () => {
 
 // ROUTES
 app.get('*', checkUser);
-app.get('/', (req, res) => {
-    res.render('index', { title: "Welcome to our web application" });
+app.get('/', checkAuthenticated, (req, res) => {
+    res.render('index', { title: "Welcome to our Web Application"});
 });
 
 app.get('/search', requireAuth, (req, res) => {
