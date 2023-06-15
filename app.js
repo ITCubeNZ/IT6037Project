@@ -31,7 +31,10 @@ app.get('/', checkAuthenticated, (req, res) => {
 });
 
 app.get('/search', requireAuth, (req, res) => {
-    res.render('search', { title: "Search our Digital Resources" });
+    res.render('search', { 
+        title: "Search our Digital Resources",
+        messsages: ""
+    });
 });
 
 
