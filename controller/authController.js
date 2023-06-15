@@ -1,7 +1,6 @@
 const User = require("../models/User");
 const jwt = require('jsonwebtoken');
 const secret = require("../secret");
-const { requireAuth } = require("../middleware/authMiddleware");
 
 
 const handleErrors = (err) => {

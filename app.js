@@ -9,8 +9,6 @@ const { requireAuth, checkUser } = require('./middleware/authMiddleware');
 
 const app = express();
 
-app.use(authRoutes);
-app.use(dataRoutes);
 app.use(express.json())
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
@@ -32,3 +30,5 @@ app.get('/search', requireAuth, (req, res) => res.render('search'));
 app.get('/add', requireAuth, (req, res) => res.render('add'));
 app.get('/modify', requireAuth, (req, res) => res.render('modify'));
 
+app.use(authRoutes);
+app.use(dataRoutes);
