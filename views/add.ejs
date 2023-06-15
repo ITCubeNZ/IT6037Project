@@ -18,12 +18,15 @@
             <form method="post" id="addForm">
                 <div class="form-field">
                     <input type="text" name="category" placeholder="category" id="category">
+                    <div class="category error"></div>
                 </div>
                 <div class="form-field">
                     <input type="text" name="type" placeholder="type" id="type">
+                    <div class="type error"></div>
                 </div>
                 <div class="form-field">
                     <input type="text" name="name" id="name" placeholder="name">
+                    <div class="name error"></div>
                 </div>
                 <div class="form-field">
                     <input type="number" name="born" id="born" placeholder="born">
@@ -42,6 +45,7 @@
                 </div>
                 <div class="form-field">
                     <textarea name="about" id="about" cols="30" rows="5" placeholder="about"></textarea>
+                    <div class="about error"></div>
                 </div>
                 <div class="form-field">
                     <input type="number" name="year" id="year" placeholder="year">

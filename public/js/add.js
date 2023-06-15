@@ -1,4 +1,8 @@
 const form = document.querySelector('form');
+const categoryError = document.querySelector('.category.error');
+const typeError = document.querySelector('.type.error');
+const nameError = document.querySelector('.name.error');
+const aboutError = document.querySelector('.about.error');
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -17,6 +21,12 @@ form.addEventListener('submit', async (e) => {
     const dimensions = form.dimensions.value;
     const location = form.location.value;
     const developer = form.developer.value;
+
+    categoryError.value = '';
+    typeError.value = '';
+    nameError.value = '';
+    aboutError.value = '';
+
 
     try {
         const res = await fetch('/add', {
@@ -39,6 +49,16 @@ form.addEventListener('submit', async (e) => {
             }),
             headers: { 'Content-Type': 'application/json' }
         });
+        const data = await res.json();
+        if (data.errors) {
+            categoryError.textContent = data.errors.category;
+            typeError.textContent = data.errors.type;
+            nameError.textContent = data.errors.name;
+            aboutError.textContent = data.errors.about;
+        }
+        if (data.resource) {
+            location.assign('/search');
+        }
     } catch (err) {
         console.log(err);
     }

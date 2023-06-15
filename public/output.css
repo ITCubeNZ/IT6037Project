@@ -536,7 +536,7 @@ main {
   overflow: hidden;
 }
 
-.email.error, .password.error {
+.email.error, .password.error, .category.error, .type.error, .name.error, .about.error {
   font-weight: bold;
   --tw-text-opacity: 1;
   color: rgb(185 28 28 / var(--tw-text-opacity));

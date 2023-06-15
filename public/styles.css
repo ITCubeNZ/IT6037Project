@@ -17,7 +17,7 @@ main {
     
 }
 
-.email.error, .password.error {
+.email.error, .password.error, .category.error, .type.error, .name.error, .about.error {
     font-weight: bold;
     @apply text-red-700;
 }
