@@ -9,11 +9,13 @@ form.addEventListener('submit', async (e) => {
     passwordError.textContent = '';
     const email = form.email.value;
     const password = form.password.value;
+    const fullName = form.fullName.value;
+    const accountGroup = form.accountGroup.value;
 
     try {
         const res = await fetch('/register', {
             method: 'POST',
-            body: JSON.stringify({ email, password }),
+            body: JSON.stringify({ email, password, fullName, accountGroup }),
             headers: { 'Content-Type': 'application/json' }
         });
         const data = await res.json();

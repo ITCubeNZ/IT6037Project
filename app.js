@@ -6,7 +6,7 @@ const dataRoutes = require('./routes/dataRoutes');
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
 const { requireAuth, checkUser, checkAuthenticated } = require('./middleware/authMiddleware');
-const { retrieveArt } = require('./middleware/dataMiddleware');
+const { retrieveArt, retrieveMaths, retrieveTechnology } = require('./middleware/dataMiddleware');
 
 const app = express();
 
@@ -48,8 +48,29 @@ app.get('/categories', requireAuth, (req, res) =>{
 });
 
 app.get('/categories/art', requireAuth, retrieveArt, (req, res) => {
-    res.render('cat_listed', { title: "test" })
-})
+    res.render('cat_listed', { 
+        title: "Digital Resources by Art Category",
+        contentName: "Digital Resources by Maths Category",
+        content: res.locals.art
+    })
+});
+
+app.get('/categories/maths', requireAuth, retrieveMaths, (req, res) => {
+    res.render('cat_listed', {
+        title: "Digital Resources by Maths Category",
+        contentName: "Digital Resources by Maths Category",
+        content: res.locals.maths
+    })
+});
+
+app.get('/categories/technology', requireAuth, retrieveTechnology, (req, res) => {
+    res.render('cat_listed', {
+        title: "Digital Resources by Technology Category",
+        contentName: "Digital Resources by Technology Category",
+        content: res.locals.technology
+
+    })
+});
 
 app.use(authRoutes);
 app.use(dataRoutes);
