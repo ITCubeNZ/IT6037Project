@@ -6,7 +6,7 @@ const retrieveArt = async (req, res, next) => {
         $options: 'i'
     }}).exec();
 
-    console.log(result);
+    res.locals.art = result;
     next();
 }
 
@@ -16,7 +16,7 @@ const retrieveMaths = async (req, res, next) => {
         $options: 'i'
     }}).exec();
 
-    console.log(result)
+    res.locals.maths = result;
     next();
 }
 
@@ -26,7 +26,7 @@ const retrieveTechnology = async (req, res, next) => {
         $options: 'i'
     }}).exec();
 
-    console.log(result);
+    res.locals.technology = result;
     next();
 }
 
