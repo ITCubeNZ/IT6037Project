@@ -32,8 +32,7 @@ app.get('/', checkAuthenticated, (req, res) => {
 
 app.get('/search', requireAuth, (req, res) => {
     res.render('search', { 
-        title: "Search our Digital Resources",
-        messsages: ""
+        title: "Search our Digital Resources"
     });
 });
 
@@ -55,7 +54,7 @@ app.get('/categories/art', requireAuth, retrieveArt, (req, res) => {
         title: "Digital Resources by Art Category",
         contentName: "Digital Resources by Maths Category",
         content: res.locals.art
-    })
+    });
 });
 
 app.get('/categories/maths', requireAuth, retrieveMaths, (req, res) => {
@@ -63,7 +62,7 @@ app.get('/categories/maths', requireAuth, retrieveMaths, (req, res) => {
         title: "Digital Resources by Maths Category",
         contentName: "Digital Resources by Maths Category",
         content: res.locals.maths
-    })
+    });
 });
 
 app.get('/categories/technology', requireAuth, retrieveTechnology, (req, res) => {
@@ -72,7 +71,7 @@ app.get('/categories/technology', requireAuth, retrieveTechnology, (req, res) =>
         contentName: "Digital Resources by Technology Category",
         content: res.locals.technology
 
-    })
+    });
 });
 
 app.use(authRoutes);

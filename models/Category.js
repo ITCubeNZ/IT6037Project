@@ -12,7 +12,11 @@ const categorySchema = new mongoose.Schema({
     categoryDescription: {
         type: String,
         required: [true]
-    } 
+    },
+    categoryCount: {
+        type: Number,
+        required: [true]
+    }
 });
 
 const Category = mongoose.model('category', categorySchema);

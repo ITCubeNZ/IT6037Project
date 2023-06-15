@@ -45,10 +45,6 @@ module.exports.add_post = async (req, res) => {
             category, type, name, born, died, nationality, knownFor, notableWork, about, year, medium, dimensions, location, developer
         });
         res.status(201).json({resource: (await resource)._id});
-        res.render('search', {
-            title: "Search our Digital Resources",
-            messages: "Congratulations! Your digital resource was sucessfully added to our database!"
-        })
     } catch (err) {
         const errors = handleErrors(err)
         res.status(400).json({errors});
