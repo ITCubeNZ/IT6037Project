@@ -49,8 +49,6 @@ module.exports.add_post = async (req, res) => {
         const errors = handleErrors(err)
         res.status(400).json({errors});
     }
-    
-    
 }
 
 module.exports.modify_post = async (req, res) => {

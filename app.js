@@ -6,6 +6,7 @@ const dataRoutes = require('./routes/dataRoutes');
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
 const { requireAuth, checkUser, checkAuthenticated } = require('./middleware/authMiddleware');
+const { retrieveArt } = require('./middleware/dataMiddleware');
 
 const app = express();
 
@@ -45,6 +46,10 @@ app.get('/modify', requireAuth, (req, res) => {
 app.get('/categories', requireAuth, (req, res) =>{ 
     res.render('list_by_cat', { title: "Digital Resources listed by Category" });
 });
+
+app.get('/categories/art', requireAuth, retrieveArt, (req, res) => {
+    res.render('cat_listed', { title: "test" })
+})
 
 app.use(authRoutes);
 app.use(dataRoutes);
