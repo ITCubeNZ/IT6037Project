@@ -47,11 +47,11 @@ const createJWT = (id) => {
 
 
 module.exports.register_get = (req, res) => {
-    res.render("register");
+    res.render("register", {title: "Register to our Website" });
 }
 
 module.exports.login_get = (req, res) => {
-    res.render("login");
+    res.render("login", {title: "Login to our Website" });
 }
 
 module.exports.register_post = async (req, res) => {
@@ -88,5 +88,4 @@ module.exports.logout_get = (req, res) => {
     res.cookie('jwt', '', { maxAge: 1 });
     res.redirect('/')
 }
-
 

@@ -25,10 +25,26 @@ app.listen(port, () => {
 
 // ROUTES
 app.get('*', checkUser);
-app.get('/', (req, res) => res.render('index'));
-app.get('/search', requireAuth, (req, res) => res.render('search'));
-app.get('/add', requireAuth, (req, res) => res.render('add'));
-app.get('/modify', requireAuth, (req, res) => res.render('modify'));
+app.get('/', (req, res) => {
+    res.render('index', { title: "Welcome to our web application" });
+});
+
+app.get('/search', requireAuth, (req, res) => {
+    res.render('search', { title: "Search our Digital Resources" });
+});
+
+
+app.get('/add', requireAuth, (req, res) => {
+    res.render('add', { title: "Add a Digital Resource" });
+});
+
+app.get('/modify', requireAuth, (req, res) => {
+    res.render('modify', { title: "Modify a Digital Resource" });
+});
+
+app.get('/categories', requireAuth, (req, res) =>{ 
+    res.render('list_by_cat', { title: "Digital Resources listed by Category" });
+});
 
 app.use(authRoutes);
 app.use(dataRoutes);

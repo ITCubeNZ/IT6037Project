@@ -53,6 +53,6 @@ module.exports.add_post = async (req, res) => {
     
 }
 
-module.exports.modify_post = (req, res) => {
-    console.log('posting response from the modify page');
+module.exports.modify_post = async (req, res) => {
+ console.log('test');
 }
