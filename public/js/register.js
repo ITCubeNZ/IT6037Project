@@ -16,17 +16,16 @@ form.addEventListener('submit', async (e) => {
         const res = await fetch('/register', {
             method: 'POST',
             body: JSON.stringify({ email, password, fullName, accountGroup }),
-            headers: { 'Content-Type': 'application/json' }
+            headers: { 'Content-Type': 'application/json' } 
         });
         const data = await res.json();
         if(data.errors) {
             emailError.textContent = data.errors.email;
             passwordError.textContent = data.errors.password;
-        }
-        console.log(data.user)
-        if (data.user) {
+        } else {
             location.assign('/search')
         }
+        console.log(data.user)
     } catch (err) {
         console.log(err);
     }

@@ -32,8 +32,13 @@ const handleErrors = (err) => {
     return errors;
 }
 
-module.exports.search_post = (req, res) => {
-    console.log('posting response');
+module.exports.search_post = async (req, res) => {
+    const allResource = await Resource.find({});
+    if (!allResource) {
+        res.status(400).send({error: "No task was found."});
+    }
+    res.status(200).send(allResource);
+    console.log(allResource)
 }
 
 module.exports.add_post = async (req, res) => {
