@@ -50,6 +50,7 @@ form.addEventListener('submit', async (e) => {
             headers: { 'Content-Type': 'application/json' }
         });
         const data = await res.json();
+        console.log(data.resource);
         if (data.errors) {
             categoryError.textContent = data.errors.category;
             typeError.textContent = data.errors.type;
