@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 const userSchema = new mongoose.Schema({
     fullName: {
         type: String,
+        required: [true, 'Please enter your full name.']
     },
     email: {
         type: String,
@@ -18,8 +19,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         minlength: [6, "Sorry your password isn't long enough"]
     }, 
-    userGroup: {
-        type: String
+    accountGroup: {
+        type: String,
+        required: [true, 'Please make sure to select a user group.']
     }
 })
 
