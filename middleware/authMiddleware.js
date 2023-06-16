@@ -56,4 +56,26 @@ const checkAuthenticated = (req, res, next) => {
         next();
     }
 }
-module.exports = { requireAuth, checkUser, checkAuthenticated };
+
+const checkAdministrator = (req, res, next) => {
+    const token = req.cookies.jwt;
+
+    if (token) {
+        jwt.verify(token, secret, async (err, decodedToken) => {
+            if (err) {
+                console.log(err);
+                res.redirect('/search');
+                next();
+            } else {
+                let user = await User.findById(decodedToken.id);
+                if (user.accountGroup === 'Administrator') {
+                    next();
+                } else {
+                    res.redirect('/search');
+                }
+            }
+        });
+    }
+}
+
+module.exports = { requireAuth, checkUser, checkAuthenticated, checkAdministrator };

@@ -5,7 +5,7 @@ const authRoutes = require('./routes/authRoutes');
 const dataRoutes = require('./routes/dataRoutes');
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
-const { requireAuth, checkUser, checkAuthenticated } = require('./middleware/authMiddleware');
+const { requireAuth, checkUser, checkAuthenticated, checkAdministrator } = require('./middleware/authMiddleware');
 const { retrieveArt, retrieveMaths, retrieveTechnology } = require('./middleware/dataMiddleware');
 
 const app = express();
@@ -37,7 +37,7 @@ app.get('/search', requireAuth, (req, res) => {
 });
 
 
-app.get('/add', requireAuth, (req, res) => {
+app.get('/add', requireAuth, checkAdministrator, (req, res) => {
     res.render('add', { title: "Add a Digital Resource" });
 });
 
