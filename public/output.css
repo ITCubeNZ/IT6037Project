@@ -526,14 +526,33 @@ body {
   margin: 0;
   padding: 0;
   background-color: #2D3142;
-}
-
-main {
+  overflow: hidden;
   height: 100vh;
   width: 100vw;
   background-image: url("bg.jpg");
   background-size: cover;
-  overflow: hidden;
+}
+
+header nav {
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 64 175 / var(--tw-bg-opacity));
+  padding: 15px;
+}
+
+.nav-item {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.nav-item:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(29 78 216 / var(--tw-text-opacity));
 }
 
 .email.error, .password.error, .category.error, .type.error, .name.error, .about.error {
@@ -694,4 +713,22 @@ select:hover {
 .search-btn:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(30 27 75 / var(--tw-bg-opacity));
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+}
+
+.active {
+  font-weight: bold;
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }

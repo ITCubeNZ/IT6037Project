@@ -6,15 +6,29 @@ body {
     margin: 0;
     padding: 0;
     background-color: #2D3142;
-}
-
-main {
+    overflow: hidden;
     height: 100vh;
     width: 100vw;
     background-image: url("bg.jpg");
     background-size: cover;
-    overflow: hidden;
-    
+}
+
+header nav {
+    @apply bg-blue-800;
+    padding: 15px;
+}
+
+.nav-item {
+    @apply text-white;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.nav-item:hover {
+    @apply bg-white;
+    @apply text-blue-700; 
 }
 
 .email.error, .password.error, .category.error, .type.error, .name.error, .about.error {
@@ -151,4 +165,20 @@ select:hover {
 
 .search-btn:hover {
     @apply bg-indigo-950;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+}
+
+.active {
+    font-weight: bold;
+    @apply bg-slate-200;
+    @apply text-black;
 }

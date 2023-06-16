@@ -55,3 +55,4 @@ module.exports.add_post = async (req, res) => {
 module.exports.modify_post = async (req, res) => {
  console.log('test');
 }
+

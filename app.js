@@ -70,9 +70,9 @@ app.get('/categories/technology', requireAuth, retrieveTechnology, (req, res) =>
         title: "Digital Resources by Technology Category",
         contentName: "Digital Resources by Technology Category",
         content: res.locals.technology
-
     });
 });
+
 
 app.use(authRoutes);
 app.use(dataRoutes);
