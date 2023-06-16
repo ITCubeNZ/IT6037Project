@@ -9,7 +9,8 @@ const retrieveArt = async (req, res, next) => {
         $regex: '^' + "Art",
         $options: 'i'
     }}).exec();
-
+    // clog used for debugging
+    console.log(result);
     res.locals.art = result;
     next();
 }

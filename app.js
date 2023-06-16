@@ -52,7 +52,7 @@ app.get('/categories', requireAuth, (req, res) =>{
 app.get('/categories/art', requireAuth, retrieveArt, (req, res) => {
     res.render('cat_listed', { 
         title: "Digital Resources by Art Category",
-        contentName: "Digital Resources by Maths Category",
+        contentName: "Digital Resources by Art Category",
         content: res.locals.art
     });
 });
