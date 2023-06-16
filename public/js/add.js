@@ -5,7 +5,7 @@ const nameError = document.querySelector('.name.error');
 const aboutError = document.querySelector('.about.error');
 
 form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     const category = form.category.value;
     const type = form.type.value;
@@ -27,38 +27,20 @@ form.addEventListener('submit', async (e) => {
     nameError.value = '';
     aboutError.value = '';
 
-
     try {
         const res = await fetch('/add', {
             method: 'POST',
-            body: JSON.stringify({
-                category,
-                type,
-                name,
-                born,
-                died,
-                nationality,
-                knownFor,
-                notableWork,
-                about,
-                year,
-                medium,
-                dimensions,
-                location,
-                developer
-            }),
+            body: JSON.stringify({category, type, name, born, died, nationality, knownFor, notableWork, about, year, medium, dimensions, location, developer}),
             headers: { 'Content-Type': 'application/json' }
         });
         const data = await res.json();
-        console.log(data.resource);
         if (data.errors) {
             categoryError.textContent = data.errors.category;
             typeError.textContent = data.errors.type;
             nameError.textContent = data.errors.name;
             aboutError.textContent = data.errors.about;
-        }
-        if (data.resource) {
-            location.assign('/search');
+        } else {
+            window.location.assign('/search')
         }
     } catch (err) {
         console.log(err);
