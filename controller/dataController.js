@@ -33,12 +33,19 @@ const handleErrors = (err) => {
 }
 
 module.exports.search_post = async (req, res) => {
-    const allResource = await Resource.find({});
-    if (!allResource) {
-        res.status(400).send({error: "No task was found."});
-    }
-    res.status(200).send(allResource);
-    console.log(allResource)
+    const searchTerm = req.body;
+    var result = await Resource.find({ 'name': {
+        $regex: '^' + searchTerm,
+        $options: 'i'
+    }}).exec();
+    console.log(result);
+    res.render("search_results", {
+        title: `Search Results for ${result[0].name}`,
+        content: result,
+        contentName: result[0].name,
+        contentLength: result.length
+    })
+    
 }
 
 module.exports.add_post = async (req, res) => {
