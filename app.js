@@ -5,7 +5,7 @@ const authRoutes = require('./routes/authRoutes');
 const dataRoutes = require('./routes/dataRoutes');
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
-const { requireAuth, checkUser, checkAuthenticated, checkAdministrator } = require('./middleware/authMiddleware');
+const { requireAuth, checkUser, checkAuthenticated, checkAddModifyAccess } = require('./middleware/authMiddleware');
 const { retrieveArt, retrieveMaths, retrieveTechnology } = require('./middleware/dataMiddleware');
 
 const app = express();
@@ -37,7 +37,7 @@ app.get('/search', requireAuth, (req, res) => {
 });
 
 
-app.get('/add', requireAuth, checkAdministrator, (req, res) => {
+app.get('/add', requireAuth, checkAddModifyAccess, (req, res) => {
     res.render('add', { title: "Add a Digital Resource" });
 });
 
@@ -72,6 +72,12 @@ app.get('/categories/technology', requireAuth, retrieveTechnology, (req, res) =>
         content: res.locals.technology
     });
 });
+
+app.get('/403', (req, res) => {
+    res.render('403', {
+        title: "Sorry, there's been an error!"
+    })
+})
 
 
 app.use(authRoutes);

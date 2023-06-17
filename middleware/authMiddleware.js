@@ -57,25 +57,25 @@ const checkAuthenticated = (req, res, next) => {
     }
 }
 
-const checkAdministrator = (req, res, next) => {
+const checkAddModifyAccess = (req, res, next) => {
     const token = req.cookies.jwt;
 
     if (token) {
         jwt.verify(token, secret, async (err, decodedToken) => {
             if (err) {
                 console.log(err);
-                res.redirect('/search');
+                res.redirect('/403');
                 next();
             } else {
                 let user = await User.findById(decodedToken.id);
-                if (user.accountGroup === 'Administrator') {
+                if (user.accountGroup === 'Administrator'|| user.accountGroup === 'Tutor') {
                     next();
                 } else {
-                    res.redirect('/search');
+                    res.redirect('/403');
                 }
             }
         });
     }
 }
 
-module.exports = { requireAuth, checkUser, checkAuthenticated, checkAdministrator };
+module.exports = { requireAuth, checkUser, checkAuthenticated, checkAddModifyAccess };
