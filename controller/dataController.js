@@ -34,8 +34,8 @@ const handleErrors = (err) => {
 
 module.exports.search_post = async (req, res) => {
     const searchTerm = req.body;
-    var result = await Resource.find({ 'name': {
-        $regex: '^' + searchTerm,
+    var result = await Resource.find({ 'category': {
+        $regex: '^.*' + searchTerm,
         $options: 'i'
     }}).exec();
     console.log(result);

@@ -1,7 +1,7 @@
 const Resource = require('../models/Resource');
 const retrieveArt = async (req, res, next) => {
     var result = await Resource.find({ 'category': {
-        $regex: '^' + "Art",
+        $regex: '^' + "Arts",
         $options: 'i'
     }}).exec();
     // clog used for debugging
