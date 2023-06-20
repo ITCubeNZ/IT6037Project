@@ -27,7 +27,7 @@
             <h1><%= contentName %></h1>
             <br>
             <%if (content.length) %> <% for (let data of content) { %>
-            <h3><%= data.name %></h3>
+            <h3><a href="/view/<%= data._id %>"><%= data.name %></a></h3>
             <% } %>
             <%if (content.length === 0) {%>
                 Sorry we found no results for digital resources in this category.

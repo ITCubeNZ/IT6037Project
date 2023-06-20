@@ -101,7 +101,10 @@ app.get('/search/:id', requireAuth, async(req, res) => {
 app.get('/view/:id', requireAuth, async(req, res) => {
     try {
         let data = await Resource.findById(req.params.id)
-        res.send(data);    
+        res.render('view', {
+            title: data.name,
+            resource: data
+        })
     } catch (error) {
         // If there's an error, log it to the console and redirect to a 404 page
         console.log(error);

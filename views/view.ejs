@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="../output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <a href="/"><li class="nav-item">Search</li></a>
+                <a href="/categories"><li class="nav-item">Browse by Category</li></a>
+                <a href="/add"><li class="nav-item">Add Resource</li></a>
+                <a href="/logout"><li class="nav-item">Logout, <%= user.fullName %></li></a>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="content">
+            <h1><%= resource.name %></h1>
+            <br>
+            <b>Category:</b> <%= resource.category %>
+            <br>
+            <b>Type:</b> <%= resource.type %>
+            <br>
+            <b>Born:</b> <%= resource.born %>
+            <br>
+            <b>Died:</b> <%= resource.died %>
+            <br>
+            <b>Nationality:</b> <%= resource.nationality %>
+            <br>
+            <b>Known For:</b> <%= resource.knownFor %>
+            <br>
+            <b>Notable Work:</b> <%= resource.notableWork %>
+            <br>
+            <br>
+            <b>About:</b>
+            <br>
+            <br>
+            <%= resource.about %>
+            <br>
+            <br>
+            <b>Year:</b> <%= resource.year %>
+            <br>
+            <b>Medium: </b> <%= resource.medium %>
+            <br>
+            <b>Dimensions: </b> <%= resource.dimensions %>
+            <br>
+            <b>Location:</b> <%= resource.Location %>
+            <br>
+            <b>Developer:</b> <%= resource.developer %>
+        </div>
+    </main>
+    <script src="js/403.js"></script>
+</body>
+</html>
