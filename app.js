@@ -42,10 +42,6 @@ app.get('/add', requireAuth, checkAddModifyAccess, (req, res) => {
     res.render('add', { title: "Add a Digital Resource" });
 });
 
-app.get('/modify', requireAuth, (req, res) => {
-    res.render('modify', { title: "Modify a Digital Resource" });
-});
-
 app.get('/categories', requireAuth, (req, res) =>{ 
     res.render('list_by_cat', { title: "Digital Resources listed by Category" });
 });
@@ -112,8 +108,16 @@ app.get('/view/:id', requireAuth, async(req, res) => {
     }
 })
 
-app.get('/modify:id', requireAuth, checkAddModifyAccess, async(req, res) => {
-
+app.get('/modify/:id', async(req, res) => {
+    try {
+        let data = await Resource.findById(req.params.id)
+        res.render('modify', {
+            title: data.name,
+            resource: data
+        })
+    } catch (err) {
+        console.log(err)
+    }
 })
 
 app.get('/delete:id', requireAuth, checkDeleteAccess, async(req, res) => {

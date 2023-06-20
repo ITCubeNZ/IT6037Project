@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
-    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="../output.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
@@ -27,46 +27,46 @@
             <br>
             <form method="post" id="addForm">
                 <div class="form-field">
-                    <input type="text" name="addCategory" placeholder="category" id="addCategory">
+                    <input type="text" name="addCategory" placeholder="category" id="addCategory" value="<%= resource.category %>">
                 </div>
                 <div class="form-field">
-                    <input type="text" name="addType" placeholder="type" id="addType">
+                    <input type="text" name="addType" placeholder="type" id="addType" value="<%= resource.type %>">
                 </div>
                 <div class="form-field">
-                    <input type="text" name="addName" id="addName" placeholder="name">
+                    <input type="text" name="addName" id="addName" placeholder="name" value="<%= resource.name %>">
                 </div>
                 <div class="form-field">
-                    <input type="number" name="addBorn" id="addBorn" placeholder="born">
+                    <input type="number" name="addBorn" id="addBorn" placeholder="born" value="<%= resource.born %>">
                 </div>
                 <div class="form-field">
-                    <input type="number" name="addDied" id="addDied" placeholder="died">
+                    <input type="number" name="addDied" id="addDied" placeholder="died" value="<%= resource.died %>">
                 </div>
                 <div class="form-field">
-                    <input type="text" name="addNationality" id="addNationality" placeholder="nationality">
+                    <input type="text" name="addNationality" id="addNationality" placeholder="nationality" value="<%= resource.nationality %>">
                 </div>
                 <div class="form-field">
-                    <input type="text" name="addKnownFor" id="addKnownFor" placeholder="known for">
+                    <input type="text" name="addKnownFor" id="addKnownFor" placeholder="known for" value="<%= resource.knownFor %>">
                 </div>
                 <div class="form-field">
-                    <input type="text" name="addNotableWork" id="addNotableWork" placeholder="notable work">
+                    <input type="text" name="addNotableWork" id="addNotableWork" placeholder="notable work" value="<%= resource.notableWork %>">
                 </div>
                 <div class="form-field">
-                    <textarea name="addAbout" id="addAbout" cols="30" rows="5" placeholder="about"></textarea>
+                    <textarea name="addAbout" id="addAbout" cols="30" rows="5" placeholder="about"><%= resource.about %></textarea>
                 </div>
                 <div class="form-field">
-                    <input type="number" name="addYear" id="addYear" placeholder="year">
+                    <input type="number" name="addYear" id="addYear" placeholder="year" value="<%= resource.year %>">
                 </div>
                 <div class="form-field">
-                    <input type="text" name="addMedium" id="addMedium" placeholder="medium">
+                    <input type="text" name="addMedium" id="addMedium" placeholder="medium" value="<%= resource.medium %>">
                 </div>
                 <div class="form-field">
-                    <input type="text" name="addDimensions" id="addDimensions" placeholder="dimensions">
+                    <input type="text" name="addDimensions" id="addDimensions" placeholder="dimensions" value="<%= resource.dimensions %>">
                 </div>
                 <div class="form-field">
-                    <input type="text" name="addLocation" id="addLocation" placeholder="location">
+                    <input type="text" name="addLocation" id="addLocation" placeholder="location" value="<%= resource.location %>">
                 </div>
                 <div class="form-field">
-                    <input type="text" name="addDeveloper" id="addDeveloper" placeholder="developer">
+                    <input type="text" name="addDeveloper" id="addDeveloper" placeholder="developer" value="<%= resource.developer %>">
                 </div>
                 <br>
                 <button class="search-btn" type="submit">Add Resource</button>
