@@ -33,11 +33,6 @@ const handleErrors = (err) => {
     return errors;
 }
 
-module.exports.search_post = async (req, res) => {
-    const {searchTerm} = req.body;
-    res.redirect(`/search/${searchTerm}`)
-}
-
 module.exports.add_post = async (req, res) => {
     // Post data to database
     const { category, type, name, born, died, nationality, knownFor, notableWork, about, year, medium, dimensions, location, developer } = req.body
