@@ -1,5 +1,6 @@
 const Resource = require("../models/Resource");
 
+
 // Handle Errors
 const handleErrors = (err) => {
     console.log(err.message, err.code);
@@ -33,19 +34,15 @@ const handleErrors = (err) => {
 }
 
 module.exports.search_post = async (req, res) => {
-    const searchTerm = req.body;
-    var result = await Resource.find({ 'category': {
+    const {searchTerm} = req.body;
+    var result = await Resource.find({ 'name': {
         $regex: '^.*' + searchTerm,
         $options: 'i'
-    }}).exec();
-    console.log(result);
-    res.render("search_results", {
-        title: `Search Results for ${result[0].name}`,
-        content: result,
-        contentName: result[0].name,
-        contentLength: result.length
-    })
-    
+    }}).exec().then(
+        res.render("search_results", {  
+            title: `Search Results for ${searchTerm}`,
+        })   
+    )
 }
 
 module.exports.add_post = async (req, res) => {

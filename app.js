@@ -5,8 +5,9 @@ const authRoutes = require('./routes/authRoutes');
 const dataRoutes = require('./routes/dataRoutes');
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
-const { requireAuth, checkUser, checkAuthenticated, checkAddModifyAccess } = require('./middleware/authMiddleware');
+const { requireAuth, checkUser, checkAuthenticated, checkAddModifyAccess, checkDeleteAccess } = require('./middleware/authMiddleware');
 const { retrieveArt, retrieveMaths, retrieveTechnology } = require('./middleware/dataMiddleware');
+const Resource = require('./models/Resource');
 
 const app = express();
 
@@ -77,6 +78,28 @@ app.get('/403', (req, res) => {
     res.render('403', {
         title: "Sorry, there's been an error!"
     })
+})
+
+app.get('/search/:id', requireAuth, async(req, res) => {
+    let data = await Resource.find({
+        "$or": [
+            {name:{$regex:req.params.id}}
+        ]
+    });
+    res.send(data)
+});
+
+app.get('/view/:id', requireAuth, async(req, res) => {
+    let data = await Resource.findById(req.params.id)
+    res.send(data);
+})
+
+app.get('/modify:id', requireAuth, checkAddModifyAccess, async(req, res) => {
+
+})
+
+app.get('/delete:id', requireAuth, checkDeleteAccess, async(req, res) => {
+    
 })
 
 
