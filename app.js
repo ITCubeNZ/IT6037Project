@@ -80,18 +80,33 @@ app.get('/403', (req, res) => {
     })
 })
 
+app.get('/404', (req, res) => {
+    res.render('404', {
+        title: "Sorry, we couldn't find what you were looking for!"
+    })
+})
+
 app.get('/search/:id', requireAuth, async(req, res) => {
     let data = await Resource.find({
         "$or": [
             {name:{$regex:req.params.id}}
         ]
     });
-    res.send(data)
+    res.render("search_results", {  
+        title: `Search Results for ${req.params.id}`,
+        content: data
+    })
 });
 
 app.get('/view/:id', requireAuth, async(req, res) => {
-    let data = await Resource.findById(req.params.id)
-    res.send(data);
+    try {
+        let data = await Resource.findById(req.params.id)
+        res.send(data);    
+    } catch (error) {
+        // If there's an error, log it to the console and redirect to a 404 page
+        console.log(error);
+        res.redirect('/404')
+    }
 })
 
 app.get('/modify:id', requireAuth, checkAddModifyAccess, async(req, res) => {
@@ -99,7 +114,12 @@ app.get('/modify:id', requireAuth, checkAddModifyAccess, async(req, res) => {
 })
 
 app.get('/delete:id', requireAuth, checkDeleteAccess, async(req, res) => {
-    
+
+})
+
+app.use(function(req, res) {
+    // 404 not found
+    res.redirect('/404')
 })
 
 
