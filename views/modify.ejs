@@ -27,6 +27,10 @@
             <br>
             <form method="post" id="addForm">
                 <div class="form-field">
+                    <label for="id">ID</label>
+                    <input type="text" name="id" id="id" value="<%= resource.id %>" disabled>
+                </div>
+                <div class="form-field">
                     <input type="text" name="addCategory" placeholder="category" id="addCategory" value="<%= resource.category %>">
                 </div>
                 <div class="form-field">
