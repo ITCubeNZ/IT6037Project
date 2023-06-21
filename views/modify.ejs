@@ -26,49 +26,53 @@
             <form method="post" id="addForm">
                 <div class="form-field">
                     <label for="addID">ID</label>
-                    <input type="text" name="addID" id="addID" value="<%= resource.id %>" disabled>
+                    <input type="text" name="id" id="id" value="<%= resource.id %>" disabled>
                 </div>
                 <div class="form-field">
-                    <input type="text" name="addCategory" placeholder="category" id="addCategory" value="<%= resource.category %>">
+                    <input type="text" name="category" placeholder="category" id="category" required value="<%= resource.category %>">
+                    <div class="category error"></div>
                 </div>
                 <div class="form-field">
-                    <input type="text" name="addType" placeholder="type" id="addType" value="<%= resource.type %>">
+                    <input type="text" name="type" placeholder="type" id="type" required value="<%= resource.type %>">
+                    <div class="type error"></div>
                 </div>
                 <div class="form-field">
-                    <input type="text" name="addName" id="addName" placeholder="name" value="<%= resource.name %>">
+                    <input type="text" name="name" id="name" placeholder="name" required value="<%= resource.name %>">
+                    <div class="name error"></div>
                 </div>
                 <div class="form-field">
-                    <input type="number" name="addBorn" id="addBorn" placeholder="born" value="<%= resource.born %>">
+                    <input type="number" name="born" id="born" placeholder="born" value="<%= resource.born %>">
                 </div>
                 <div class="form-field">
-                    <input type="number" name="addDied" id="addDied" placeholder="died" value="<%= resource.died %>">
+                    <input type="number" name="died" id="died" placeholder="died" value="<%= resource.died %>">
                 </div>
                 <div class="form-field">
-                    <input type="text" name="addNationality" id="addNationality" placeholder="nationality" value="<%= resource.nationality %>">
+                    <input type="text" name="nationality" id="nationality" placeholder="nationality" value="<%= resource.nationality %>">
                 </div>
                 <div class="form-field">
-                    <input type="text" name="addKnownFor" id="addKnownFor" placeholder="known for" value="<%= resource.knownFor %>">
+                    <input type="text" name="knownFor" id="knownFor" placeholder="known for" value="<%= resource.knownFor %>"> 
                 </div>
                 <div class="form-field">
-                    <input type="text" name="addNotableWork" id="addNotableWork" placeholder="notable work" value="<%= resource.notableWork %>">
+                    <input type="text" name="notableWork" id="notableWork" placeholder="notable work" value="<%= resource.notableWork %>">
                 </div>
                 <div class="form-field">
-                    <textarea name="addAbout" id="addAbout" cols="30" rows="5" placeholder="about"><%= resource.about %></textarea>
+                    <textarea name="about" id="about" cols="30" rows="5" placeholder="about" required><%= resource.about %></textarea>
+                    <div class="about error"></div>
                 </div>
                 <div class="form-field">
-                    <input type="number" name="addYear" id="addYear" placeholder="year" value="<%= resource.year %>">
+                    <input type="number" name="year" id="year" placeholder="year" value="<%= resource.year %>">
                 </div>
                 <div class="form-field">
-                    <input type="text" name="addMedium" id="addMedium" placeholder="medium" value="<%= resource.medium %>">
+                    <input type="text" name="medium" id="nedium" placeholder="medium" value="<%= resource.medium %>">
                 </div>
                 <div class="form-field">
-                    <input type="text" name="addDimensions" id="addDimensions" placeholder="dimensions" value="<%= resource.dimensions %>">
+                    <input type="text" name="dimensions" id="dimensions" placeholder="dimensions" value="<%= resource.dimensions %>">
                 </div>
                 <div class="form-field">
-                    <input type="text" name="addLocation" id="addLocation" placeholder="location" value="<%= resource.location %>">
+                    <input type="text" name="location" id="location" placeholder="location" value="<%= resource.location %>">
                 </div>
                 <div class="form-field">
-                    <input type="text" name="addDeveloper" id="addDeveloper" placeholder="developer" value="<%= resource.developer %>">
+                    <input type="text" name="developer" id="developer" placeholder="developer" value="<%= resource.developer %>">
                 </div>
                 <br>
                 <button class="search-btn" type="submit">Add Resource</button>

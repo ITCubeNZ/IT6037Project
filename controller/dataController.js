@@ -50,10 +50,9 @@ module.exports.add_post = async (req, res) => {
 
 module.exports.modify_post = async (req, res) => {
     const {id, category, type, name, born, died, nationality, knownFor, notableWork, about, year, medium, dimensions, location, developer } = req.body
-    console.log(req.body)
 
     try {
-        Resource.findByIdAndUpdate(id, {$set:{
+        const updatedResource = await Resource.findByIdAndUpdate(id, {$set:{
             category: category, 
             type: type,
             name: name, 
@@ -69,9 +68,16 @@ module.exports.modify_post = async (req, res) => {
             location: location,
             developer: developer 
         }})
+        res.status(201).json({resource: updatedResource})
+
     } catch (error) {
         console.log(error);
         res.status(400).json({error})
     }
+}
+
+module.exports.delete_post = async (req, res) => {
+    const { id } = req.body;
+    
 }
 
