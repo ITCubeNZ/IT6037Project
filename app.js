@@ -120,15 +120,17 @@ app.get('/modify/:id', async(req, res) => {
     }
 })
 
-app.get('/delete:id', requireAuth, checkDeleteAccess, async(req, res) => {
-
+app.get('/delete/:id', requireAuth, async(req, res) => {
+    try {
+        let data = await Resource.findById(req.params.id)
+        res.render('delete', {
+            title: data.name,
+            data: data
+        })
+    } catch (error) {
+        
+    }
 })
-
-app.use(function(req, res) {
-    // 404 not found
-    res.redirect('/404')
-})
-
 
 app.use(authRoutes);
 app.use(dataRoutes);

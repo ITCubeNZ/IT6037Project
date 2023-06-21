@@ -49,6 +49,29 @@ module.exports.add_post = async (req, res) => {
 }
 
 module.exports.modify_post = async (req, res) => {
- console.log('test');
+    const {id, category, type, name, born, died, nationality, knownFor, notableWork, about, year, medium, dimensions, location, developer } = req.body
+    console.log(req.body)
+
+    try {
+        Resource.findByIdAndUpdate(id, {$set:{
+            category: category, 
+            type: type,
+            name: name, 
+            born: born, 
+            died: died, 
+            nationality: nationality, 
+            knownFor: knownFor,
+            notableWork: notableWork,
+            about: about,
+            year: year,
+            medium: medium, 
+            dimensions: dimensions,
+            location: location,
+            developer: developer 
+        }})
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({error})
+    }
 }
 
