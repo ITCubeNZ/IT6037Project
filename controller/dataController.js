@@ -78,6 +78,11 @@ module.exports.modify_post = async (req, res) => {
 
 module.exports.delete_post = async (req, res) => {
     const { id } = req.body;
-    
+    try {
+        const deletedResource = await Resource.findByIdAndDelete(id);
+        res.status(201).json( {resource: deletedResource })
+    } catch (error) {
+        re.status(400).json( {error} )
+    }
 }
 
