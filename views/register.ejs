@@ -17,25 +17,17 @@
             <form class="account-form" id="registerForm" method="post">
                 <div class="form-field">
                     <label for="fullName">Full Name</label><br>
-                    <input id="fullNameRegistrationInput" name="fullName" type="text" placeholder="Full Name" required>
+                    <input id="fullNameRegistrationInput" name="fullName" type="text" placeholder="Full Name" required autocomplete="off">
                 </div>
                 <div class="form-field">
                     <label for="email">Email</label><br>
-                    <input id="emailRegistrationInput" name="email" type="email" placeholder="Email" required>
+                    <input id="emailRegistrationInput" name="email" type="email" placeholder="Email" required autocomplete="off"> 
                     <div class="email error"></div>
                 </div>
                 <div class="form-field">
                     <label for="password">Password</label><br>
-                    <input id="passwordRegistrationInput" name="password" type="password" placeholder="Password" required>
+                    <input id="passwordRegistrationInput" name="password" type="password" placeholder="Password" required autocomplete="off"> 
                     <div class="password error"></div>
-                </div>
-                <div class="form-field">
-                    <label for="accountGroup">Account Type</label><br>  
-                    <select name="accountGroup" id="accountGroup" required>
-                        <option value="Student" selected>Student</option>
-                        <option value="Tutor">Tutor</option>
-                        <option value="Administrator">Administrator</option>
-                    </select>
                 </div>
                 <div class="centered-button">
                     <button class="btn" type="submit">Register Account</button>
