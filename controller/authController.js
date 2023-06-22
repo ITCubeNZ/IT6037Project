@@ -55,7 +55,8 @@ module.exports.login_get = (req, res) => {
 }
 
 module.exports.register_post = async (req, res) => {
-    const { fullName, email, password, accountGroup } = req.body
+    const { fullName, email, password } = req.body
+    const accountGroup = "Student"
     
     try {
         const user = User.create({
