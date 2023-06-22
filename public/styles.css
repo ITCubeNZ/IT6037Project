@@ -134,19 +134,22 @@ select:hover {
 }
 
 .centered-button {
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
 }
 
-#landingMain a, p a{
-    @apply text-slate-300
+#landingMain a, p a, .general-link{
+    @apply text-slate-700;
+    font-weight: bold;
+    font-style: italic;
 }
 
-#landingMain a:hover, p a:hover {
-    @apply text-gray-600;
+#landingMain a:hover, p a:hover, .general-link:hover {
+    @apply text-gray-300;
 }
 
-#searchBox {
+#searchTerm {
     width: 500px;
     border-width: 4px;
     -moz-border-radius: 6px;
@@ -158,12 +161,12 @@ select:hover {
     padding: 4px;
 }
 
-.search-btn {
+.search-btn, .mod-btn, .del-btn {
     @apply font-bold py-2 px-4 rounded;
     @apply bg-indigo-700 text-white;
 }
 
-.search-btn:hover {
+.search-btn:hover, .mod-btn:hover, .del-btn:hover {
     @apply bg-indigo-950;
 }
 
@@ -181,4 +184,9 @@ li {
     font-weight: bold;
     @apply bg-slate-200;
     @apply text-black;
+}
+
+#searchTerm:hover {
+    @apply border-neutral-400;
+
 }

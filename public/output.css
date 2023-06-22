@@ -673,21 +673,24 @@ select:hover {
 }
 
 .centered-button {
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
 
-#landingMain a, p a {
+#landingMain a, p a, .general-link {
   --tw-text-opacity: 1;
-  color: rgb(203 213 225 / var(--tw-text-opacity));
+  color: rgb(51 65 85 / var(--tw-text-opacity));
+  font-weight: bold;
+  font-style: italic;
 }
 
-#landingMain a:hover, p a:hover {
+#landingMain a:hover, p a:hover, .general-link:hover {
   --tw-text-opacity: 1;
-  color: rgb(75 85 99 / var(--tw-text-opacity));
+  color: rgb(209 213 219 / var(--tw-text-opacity));
 }
 
-#searchBox {
+#searchTerm {
   width: 500px;
   border-width: 4px;
   border-radius:6px;
@@ -697,7 +700,7 @@ select:hover {
   padding: 4px;
 }
 
-.search-btn {
+.search-btn, .mod-btn, .del-btn {
   border-radius: 0.25rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -710,7 +713,7 @@ select:hover {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.search-btn:hover {
+.search-btn:hover, .mod-btn:hover, .del-btn:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(30 27 75 / var(--tw-bg-opacity));
 }
@@ -731,4 +734,9 @@ li {
   background-color: rgb(226 232 240 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+#searchTerm:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(163 163 163 / var(--tw-border-opacity));
 }

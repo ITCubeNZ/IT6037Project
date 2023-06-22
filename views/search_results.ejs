@@ -11,12 +11,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <a href="/"><li class="nav-item">Search</li></a>
+                <a href="/categories"><li class="nav-item">Browse by Category</li></a>
+                <a href="/add"><li class="nav-item">Add Resource</li></a>
+                <a href="/logout"><li class="nav-item">Logout, <%= user.fullName %></li></a>
+            </ul>
+        </nav>
+    </header>
     <main>
         <div class="content">
             <h1><%= title %></h1>
             <br>
             <% for (let data of content) { %>
-                <h3><a href="/view/<%= data._id %>"><%= data.name %></a></h3>
+                <h3><a href="/view/<%= data._id %>" class="general-link"><%= data.name %></a></h3>
+                <br>
             <% } %>
             <%if (content.length === 0) {%>
                 Sorry we found no results for resources using this term.

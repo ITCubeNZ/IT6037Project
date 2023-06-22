@@ -117,6 +117,7 @@ app.get('/modify/:id', async(req, res) => {
         })
     } catch (err) {
         console.log(err)
+        res.redirect('/404')
     }
 })
 
