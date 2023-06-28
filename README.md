@@ -31,6 +31,16 @@ We have been tasked with developing a database and implementing a full-stack int
 
 `npm install`
 
+### Connect the Database
+
+Create a file called Database.js and create a connection to the database, for purposes of development I called mine connect, which is called within the app.js file.
+
+### Create a Secret. 
+
+Create a file called secret.js and export the secret. This is used for authentication. 
+
+`module.exports = 'thisisasupersecretsecretusedforauthentication`
+
 ### Make sure CSS is properly built using Tailwind CSS. 
 
 `npm run build-css`
