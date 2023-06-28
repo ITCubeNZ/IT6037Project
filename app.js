@@ -108,7 +108,7 @@ app.get('/view/:id', requireAuth, async(req, res) => {
     }
 })
 
-app.get('/modify/:id', async(req, res) => {
+app.get('/modify/:id', requireAuth, checkAddModifyAccess, async(req, res) => {
     try {
         let data = await Resource.findById(req.params.id)
         res.render('modify', {
@@ -121,7 +121,7 @@ app.get('/modify/:id', async(req, res) => {
     }
 })
 
-app.get('/delete/:id', requireAuth, async(req, res) => {
+app.get('/delete/:id', requireAuth, checkDeleteAccess, async(req, res) => {
     try {
         let data = await Resource.findById(req.params.id)
         res.render('delete', {
