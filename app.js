@@ -28,7 +28,7 @@ app.listen(port, () => {
 // ROUTES
 app.get('*', checkUser);
 app.get('/', checkAuthenticated, (req, res) => {
-    res.render('index', { title: "Welcome to our Web Application"});
+    res.render('index', { title: "Digital Resource Library"});
 });
 
 app.get('/search', requireAuth, (req, res) => {
